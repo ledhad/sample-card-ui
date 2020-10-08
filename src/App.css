@@ -3,30 +3,42 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  text-align: center;
+  /* height: 550px; */
+  width: '100vw';
+  margin: 20px;
+  box-shadow: '0px 7px 12px 2px rgba(0, 0, 0, 0.08), 0px 5px 20px rgba(0, 0, 0, 0.15)';
+  border-radius: 7;
+  position: 'relative';
+  /* background-color: blue; */
 }
 #social-links {
   display: flex;
-  flex-direction: column;
-  margin: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px;
+  flex-direction: row;
 }
 
 #social-links a {
-  padding-bottom: 10px;
-  height: 36px;
-  width: 36px;
+  padding: 10px;
 }
 
-#social-links a:hover {
-  transform: scale(1.1) perspective(1px);
-  display: table;
-  transform-origin: 51% 51%;
-  filter: blur(0px);
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  transition: all 0.5s;
+#logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 45px;
+}
+#around-linkedin-wrapper {
+  position: absolute;
+  top: 2.5px;
+}
+#around-linkedin {
+  opacity: 0;
+}
+#around-github-wrapper {
+  position: absolute;
+  top: 2.5px;
+}
+#around-github {
+  opacity: 0;
 }

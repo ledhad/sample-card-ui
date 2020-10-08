@@ -28,21 +28,3 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.orange {
-  background-color: orange;
-}
-.blue {
-  background-color: blue;
-}
-.green {
-  background-color: green;
-}
-.yellow {
-  background-color: yellow;
-}

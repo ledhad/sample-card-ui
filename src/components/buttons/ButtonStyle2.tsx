@@ -4,6 +4,7 @@ import { useTheme } from 'theming';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import debounce from 'lodash/debounce';
+import { theme as themDefault } from '../../theme';
 
 gsap.registerPlugin(CustomEase);
 interface ButtonStyle2Props {
@@ -49,6 +50,7 @@ export default function ButtonStyle1({
 
   function handleClick() {
     setbtnClicked((prev) => !prev);
+
     if (onClickButton !== undefined) onClickButton();
   }
 
@@ -76,6 +78,7 @@ const useStyles = createUseStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    justiyItems: 'center',
     position: 'abolute',
     height: '50%',
     textAlign: 'center',
@@ -86,8 +89,7 @@ const useStyles = createUseStyles({
     fontWeight: 400,
     fontSize: 20,
     color: ({ theme }) => theme.color.white,
-    padding: '20px 15px',
-    margin: '0 auto',
+    padding: '22px 17px',
     backgroundColor: 'transparent',
     textDecoration: 'none',
     '&:focus': {

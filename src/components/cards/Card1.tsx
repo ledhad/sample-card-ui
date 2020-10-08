@@ -395,7 +395,7 @@ const useStyles = createUseStyles({
   wrapper: {
     height: 160,
     width: 280,
-    margin: 50,
+    margin: 21,
     display: 'flex',
     flexDirection: 'row',
     boxShadow:

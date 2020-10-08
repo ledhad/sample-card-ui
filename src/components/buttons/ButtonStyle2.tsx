@@ -63,6 +63,8 @@ export default function ButtonStyle1({
 // apparently this is better for performance https://tobiasahlin.com/blog/how-to-animate-box-shadow/
 const useStyles = createUseStyles({
   btnStyle: {
+    zIndex: 10,
+
     position: 'relative',
     display: 'inline-flex',
     padding: '8px 22px',
@@ -74,12 +76,13 @@ const useStyles = createUseStyles({
     transition: 'all 0.5s',
   },
   btn: {
+    zIndex: 10,
+
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     justiyItems: 'center',
     position: 'abolute',
-    height: '50%',
     textAlign: 'center',
     border: 'none',
     cursor: 'pointer',

@@ -14,17 +14,18 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow: scroll; */
+  overflow: auto;
   height: 100vh;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
-}
+} */
 
 /* update with this http://jsfiddle.net/5GCsJ/4713/ for hiding the scrollbar */
 
 * {
   margin: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
 }

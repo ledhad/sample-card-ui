@@ -6,6 +6,7 @@ import { Fade } from './utils';
 import gsap from 'gsap';
 import { ReactComponent as LinkedinLogo } from './assets/logos/linkedin.svg';
 import { ReactComponent as GitHubLogo } from './assets/logos/github.svg';
+import { ReactComponent as NetlifyLogo } from './assets/logos/netlify.svg';
 import debounce from 'lodash/debounce';
 var nid = require('nid');
 
@@ -115,56 +116,81 @@ function App() {
   );
   return (
     <div className="App">
-      <span id="social-links">
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/in/hadledanseur/"
-        >
-          <span
-            id="logo-wrapper"
-            onMouseEnter={() =>
-              gsap.to('#around-linkedin', { duration: 0.3, opacity: 1 })
-            }
-            onMouseLeave={() =>
-              gsap.to('#around-linkedin', { duration: 0.3, opacity: 0 })
-            }
+      <div className="app-wrapper">
+        <span id="social-links">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/hadledanseur/"
           >
-            <LinkedinLogo />
-            <span id="around-linkedin-wrapper">{aroundLinkedin}</span>
-          </span>
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/ledhad/sample-card-ui"
-        >
-          <span
-            id="logo-wrapper"
-            onMouseEnter={() =>
-              gsap.to('#around-github', { duration: 0.3, opacity: 1 })
-            }
-            onMouseLeave={() =>
-              gsap.to('#around-github', { duration: 0.3, opacity: 0 })
-            }
+            <span
+              id="logo-wrapper"
+              onMouseEnter={() =>
+                gsap.to('#around-linkedin', { duration: 0.3, opacity: 1 })
+              }
+              onMouseLeave={() =>
+                gsap.to('#around-linkedin', { duration: 0.3, opacity: 0 })
+              }
+            >
+              <LinkedinLogo />
+              <span id="around-linkedin-wrapper">{aroundLinkedin}</span>
+            </span>
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/ledhad/sample-card-ui"
           >
-            <GitHubLogo />
-            <span id="around-github-wrapper">{aroundGithub}</span>
+            <span
+              id="logo-wrapper"
+              onMouseEnter={() =>
+                gsap.to('#around-github', { duration: 0.3, opacity: 1 })
+              }
+              onMouseLeave={() =>
+                gsap.to('#around-github', { duration: 0.3, opacity: 0 })
+              }
+            >
+              <GitHubLogo />
+              <span id="around-github-wrapper">{aroundGithub}</span>
+            </span>
+          </a>
+        </span>
+        <span
+          style={{
+            width: 120,
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            fontFamily: 'roboto',
+            fontSize: 16,
+            fontStyle: 'normal',
+            fontWeight: 500,
+          }}
+        >
+          hosted by
+          <span id="logo-wrapper">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.netlify.com/"
+            >
+              <NetlifyLogo />
+            </a>
           </span>
-        </a>
-      </span>
-      <span onClick={handleClick}>
-        <ButtonStyle2>Other Skills</ButtonStyle2>
-      </span>
-      <Fade show={show}>
-        {possibleSkills.map((skill) => {
-          return (
-            (skills.skill1 === skill || skills.skill2 === skill) && (
-              <Card skill={skill} key={nid(10).toString()} />
-            )
-          );
-        })}
-      </Fade>
+        </span>
+        <span onClick={handleClick}>
+          <ButtonStyle2>Other Skills</ButtonStyle2>
+        </span>
+        <Fade show={show}>
+          {possibleSkills.map((skill) => {
+            return (
+              (skills.skill1 === skill || skills.skill2 === skill) && (
+                <Card skill={skill} key={nid(10).toString()} />
+              )
+            );
+          })}
+        </Fade>
+      </div>
     </div>
   );
 }

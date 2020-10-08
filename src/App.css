@@ -5,3 +5,28 @@
   align-items: center;
   text-align: center;
 }
+#social-links {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+#social-links a {
+  padding-bottom: 10px;
+  height: 36px;
+  width: 36px;
+}
+
+#social-links a:hover {
+  transform: scale(1.1) perspective(1px);
+  display: table;
+  transform-origin: 51% 51%;
+  filter: blur(0px);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transition: all 0.5s;
+}

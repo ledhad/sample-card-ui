@@ -3,6 +3,8 @@ import './App.css';
 import { Card } from './components/cards';
 import ButtonStyle2 from './components/buttons/ButtonStyle2';
 import { Fade } from './utils';
+import { ReactComponent as LinkedinLogo } from './assets/logos/linkedin.svg';
+import { ReactComponent as GitHubLogo } from './assets/logos/github.svg';
 var nid = require('nid');
 
 function App() {
@@ -55,6 +57,21 @@ function App() {
 
   return (
     <div className="App">
+      <span id="social-links">
+        <a
+          target="_blank"
+          href="https://meetflo.zendesk.com/hc/en-us/articles/230425728-Privacy-Policies"
+        >
+          <LinkedinLogo />
+        </a>
+        <a
+          target="_blank"
+          href="https://meetflo.zendesk.com/hc/en-us/articles/230425728-Privacy-Policies"
+        >
+          <GitHubLogo />
+        </a>
+      </span>
+
       <Fade show={show}>
         {possibleSkills.map((skill) => {
           return (

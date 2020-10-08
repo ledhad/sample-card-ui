@@ -4,22 +4,22 @@ const cardContent: ICardContent = {
   css: {
     title: `CSS`,
     content: 'CSS enables us to style our web pages with a cascade synthax.',
-    expandedContent: `My knowledge of CSS is advanced. I have used FlexBox, CSS Grid, media queries, pseudo-selector elements, transform, transitions, z-index.
-     My past projects have brought me to use a couple of tools to make my styling life either simpler such as Sass and its great functionalities, or that answer some of the conundrums that CSS brings (e.g. global naming, dependencies) such as CSS-in-JS libraries (I have used JSS and styled components).
+    expandedContent: `My knowledge of CSS is advanced. I have used FlexBox, CSS Grid, media queries, pseudo-selector elements, transform, transitions, z-index and much more.
+     My past projects have brought me to use a couple of tools to make my styling life either simpler. For instance I have used Sass and its great functionalities. I have also looked into some tools that answer some of the conundrums that CSS brings (e.g. global naming, dependencies) such as CSS-in-JS libraries (I have used JSS and styled components). In the future I would love to use CSS frameworks such as Bulma, Materialize, Material-UI, etc...
      `,
   },
   html: {
     title: 'HTML',
     content: `HTML is the most famous language of the web. There is more to it than divs and spans!`,
-    expandedContent: `HTML presents itself with a set of tags, attributes, actions, etc... to create the page content. Even though some javascript libraries take over some of those roles, the HTML markups remains something important for the browser (buttons should not be a div but a button tag, even though they can be in a div container).
-    I would really want to get better at implementiung solutions that respect WCAG standards ato make the web accessible to all.
+    expandedContent: `HTML presents itself with a set of tags, attributes, actions and more to create content on the web page. Even though some javascript libraries take over some of those roles, the HTML markups remains something important for the browser (buttons should not be a div but a button tag, even though they can be in a div container).
+    I would really want to get better at implementiung solutions that respect WCAG standards to make the web accessible to all.
     I know that there is PUG out there, and probably other HTML tools, but I have never used them.
     `,
   },
   git: {
     title: 'Git',
     content: `Git is probably the most famous version control tool.`,
-    expandedContent: `Git is a powerful version control too. I use it in all my projects. Not only can I checkout to a new branches to work on a fixes or try new things without affecting the master, but I can also save my files to the remote repository. I want to get more expertise with this tool.
+    expandedContent: `Git is a powerful version control too. I use it in all my projects. Not only can I checkout to a new branches to work on a fixes or try new things without affecting the master, but I can also save my files to the remote repository on the clouds and by coupling that with CI/CD tools I can easily deploy my projects online for the users to experience. I want to get more expertise with this tool and related deployement tools (Docker for instance)
     `,
   },
   figma: {
@@ -38,7 +38,7 @@ const cardContent: ICardContent = {
   cpp: {
     title: 'C++',
     content: `C++ is an OOP language designed for the purpose of perfomance.`,
-    expandedContent: `C++ is an obejct-oriented programming language. I learned C++ during my college years as part of the curicculum. It was the next step after C. I love the idea of oject orientated programming. Abstraction, reusability, atomization (as I call it)makes this tool very useful for some problems. My most recent experience with C++ was to optimize some code where objects in 3D space where rendered every frame based on the position of the observer. It was hard because I just had the file with no explanation and had to figure what was actually happening before I could come up with solutions to make the rendering faster.
+    expandedContent: `C++ is an obejct-oriented programming language. I learned C++ during my college years as part of the curicculum. It was the next step after C. I love the idea of oject orientated programming. Abstraction, reusability, atomization (as I call it)makes this tool very useful for some problems. My most recent experience with C++ was to optimize some code where objects in 3D space where rendered every frame based on the position of the observer. It was hard because I just had the file with no explanations and had to figure what was actually happening before I could come up with solutions to make the rendering faster.
     `,
   },
   javascript: {
@@ -68,13 +68,13 @@ const cardContent: ICardContent = {
   nodejs: {
     title: 'Node.js',
     content: `Node.js is a backend javascript runtime environment.`,
-    expandedContent: `Node.js enables developers to use the same language for scripting on the backend that they use to make their client-side applications. Node.js makes it easy as a javascript developer to implement server-side rendering. It is highly scalable thanks to its architecture. It also uses a packet management system called npm. npm is great tool to manage packages and get thousands of open-source packages from the community.
+    expandedContent: `Node.js enables developers to use the same language for scripting on the backend that they use to make their client-side applications. Node.js makes it easy as a javascript developer to implement server-side rendering. It is highly scalable thanks to its architecture. It also uses a packet management system called npm. npm is great tool to manage packages and get thousands of open-source packages from the community. At the moment I am focusing on become really good at front-end development. But in the future I would like to know more about server side programming. I have documented myself a little bit on Express.js, a back-end library.
     `,
   },
   jss: {
     title: 'JSS',
     content: `JSS is a CSS-in-JS library to create styles with certain benefits.`,
-    expandedContent: `The advantage of JSS is conflict free styling. Unlike CSS which uses globals, JSS allows the developer to have styling specific to the component and thus eliminates some of the problems of CSS. Some equivalents are CSS modules or styled components. I have used JSS for this project and have found it difficult to achieve some very specific goals when used in React.
+    expandedContent: `The advantage of JSS is conflict free styling. Unlike CSS which uses globals, JSS allows the developer to have styling specific to the component and thus eliminates some of the problems of CSS. Some equivalents are CSS modules or styled components. I have used JSS for this project and have found it difficult to achieve some very specific goals when used with React. But I have to admit that component specific styling is very useful.
     `,
   },
 };

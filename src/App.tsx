@@ -27,6 +27,7 @@ function App() {
     'nodejs',
     'jquery',
   ];
+  //useCallback unnecessary
   let findRandomSkill = useCallback(
     (skillToUpdate: Array<string>, actualSkills: Array<string>) => {
       let temp = '';
@@ -37,6 +38,7 @@ function App() {
           element === skillToUpdate[(index + 1) % 2] ||
           element === temp
         ) {
+          console.log(element);
           let n = Math.floor(Math.random() * possibleSkills.length);
           element = possibleSkills[n];
         }
@@ -73,7 +75,7 @@ function App() {
         trailing: false,
       }
     ),
-    []
+    [skills]
   );
 
   let aroundLinkedin = (
@@ -84,7 +86,6 @@ function App() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {' '}
       <g id="around-linkedin">
         <path
           fillRule="evenodd"

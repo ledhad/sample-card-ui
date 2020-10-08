@@ -4,7 +4,6 @@ import { useTheme } from 'theming';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import debounce from 'lodash/debounce';
-import { theme as themDefault } from '../../theme';
 
 gsap.registerPlugin(CustomEase);
 interface ButtonStyle2Props {

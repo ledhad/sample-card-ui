@@ -9,7 +9,6 @@ interface FadeProps {
 const Fade = ({ show, children }: FadeProps) => {
   const [render, setRender] = useState(show);
   const [id] = useState(nid({ alphabet: 'abscdefghijklmnopqrstuvwxyz' }));
-  console.log(id);
 
   useEffect(() => {
     if (show) setRender(true);
@@ -20,16 +19,35 @@ const Fade = ({ show, children }: FadeProps) => {
   };
 
   useEffect(() => {
-    gsap.fromTo(
-      `#${id}`,
-      {
-        autoAlpha: 0,
-      },
-      {
-        autoAlpha: 1,
-        duration: 1,
-      }
-    );
+    if (show) {
+      gsap.fromTo(
+        `#${id}`,
+        {
+          opacity: 0,
+          x: 400,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power2.out',
+        }
+      );
+    } else {
+      gsap.fromTo(
+        `#${id}`,
+        {
+          opacity: 1,
+          x: 0,
+        },
+        {
+          x: -400,
+          opacity: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+        }
+      );
+    }
   }, [show, id]);
 
   return ((render && (

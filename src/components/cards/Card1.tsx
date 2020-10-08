@@ -278,7 +278,7 @@ function Card1({ title, content, expandedContent }: Card1Props) {
 
   useEffect(() => {
     gsap.to(`#${title}-logo`, {
-      duration: 0.8,
+      duration: 0.8 + Math.floor(Math.random()) / 10,
       y: -10,
       repeat: -1,
       delay: -Math.floor(Math.random() * 10) / 10,
@@ -395,7 +395,7 @@ const useStyles = createUseStyles({
   wrapper: {
     height: 160,
     width: 280,
-    margin: 20,
+    margin: 50,
     display: 'flex',
     flexDirection: 'row',
     boxShadow:
@@ -446,7 +446,7 @@ const useStyles = createUseStyles({
   },
   logo: {
     position: 'absolute',
-    top: 60,
+    top: 63,
     left: 28,
     width: 36,
     height: 36,

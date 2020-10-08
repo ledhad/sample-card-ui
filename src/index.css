@@ -1,13 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+@font-face {
+  font-family: 'Phetsarath-Regular';
+  src: url('./fonts/Phetsarath-Regular.ttf') format('truetype'),
+    url('./fonts/Phetsarath-Regular.svg#Phetsarath-Regular') format('svg');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  padding: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* overflow: scroll; */
+  height: 100vh;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* update with this http://jsfiddle.net/5GCsJ/4713/ for hiding the scrollbar */
+
+* {
+  margin: 0;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.orange {
+  background-color: orange;
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
 }

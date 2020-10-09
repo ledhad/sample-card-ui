@@ -13,6 +13,8 @@ var nid = require('nid');
 function App() {
   const [skills, setskills] = useState({ skill1: 'css', skill2: 'html' });
   const [show, setShow] = useState(true);
+  const [skillsSeen, setskillsSeen] = useState([skills.skill1, skills.skill2]);
+
   let possibleSkills = [
     'css',
     'html',
@@ -27,6 +29,7 @@ function App() {
     'nodejs',
     'jquery',
   ];
+
   //useCallback unnecessary
   let findRandomSkill = useCallback(
     (skillToUpdate: Array<string>, actualSkills: Array<string>) => {
@@ -38,11 +41,13 @@ function App() {
           element === skillToUpdate[(index + 1) % 2] ||
           element === temp
         ) {
-          console.log(element);
           let n = Math.floor(Math.random() * possibleSkills.length);
           element = possibleSkills[n];
         }
         temp = element;
+        let filterResult = skillsSeen.filter((skill) => skill === element);
+        if (filterResult.length === 0)
+          setskillsSeen((prev) => [...prev, element]);
         return element;
       });
       return newSkills;
@@ -118,6 +123,9 @@ function App() {
   return (
     <div className="App">
       <div className="app-wrapper">
+        <span id="skills-seen">
+          {skillsSeen.length} / {possibleSkills.length}
+        </span>
         <span id="social-links">
           <a
             target="_blank"
@@ -156,6 +164,7 @@ function App() {
             </span>
           </a>
         </span>
+
         <span
           style={{
             width: 120,

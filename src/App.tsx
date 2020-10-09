@@ -52,7 +52,7 @@ function App() {
       });
       return newSkills;
     },
-    [possibleSkills]
+    [possibleSkills, skillsSeen]
   );
   function handleClick() {
     setShow(!show);

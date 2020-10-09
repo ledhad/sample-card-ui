@@ -8,9 +8,12 @@ import { ReactComponent as LinkedinLogo } from './assets/logos/linkedin.svg';
 import { ReactComponent as GitHubLogo } from './assets/logos/github.svg';
 import { ReactComponent as NetlifyLogo } from './assets/logos/netlify.svg';
 import debounce from 'lodash/debounce';
+import { useMediaQuery } from 'react-responsive';
 var nid = require('nid');
 
 function App() {
+  const isDesktop = useMediaQuery({ minWidth: 1025, minHeight: 601 });
+
   const [skills, setskills] = useState({ skill1: 'css', skill2: 'html' });
   const [show, setShow] = useState(true);
   const [skillsSeen, setskillsSeen] = useState([skills.skill1, skills.skill2]);
@@ -187,6 +190,9 @@ function App() {
               <NetlifyLogo />
             </a>
           </span>
+        </span>
+        <span style={{ color: 'grey' }}>
+          {!isDesktop && 'Might not run smoothly on mobile devices'}
         </span>
         <span onClick={handleClick}>
           <ButtonStyle2>Other Skills</ButtonStyle2>

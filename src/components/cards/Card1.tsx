@@ -3,13 +3,11 @@ import gsap from 'gsap';
 import { createUseStyles } from 'react-jss';
 import { useTheme } from 'theming';
 import CustomEase from 'gsap/CustomEase';
-import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import ButtonStyle1 from '../buttons/ButtonStyle1';
 import { ButtonModal } from '../buttons/';
 
 import getCardBySkill from './getLogo';
 gsap.registerPlugin(CustomEase);
-gsap.registerPlugin(CSSRulePlugin);
 
 interface Card1Props {
   title: string;
@@ -73,7 +71,7 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     });
     tl.to(`#${title}-left`, {
       rotation: 0.01, // to make it smooth
-      borderWidth: 0,
+      scaleX: 0,
       duration: 0,
       ease: CustomEase.create(
         'custom',

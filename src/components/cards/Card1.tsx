@@ -40,7 +40,6 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     gsap.timeline({
       onComplete: () => updateBtnModalAnimation(),
       paused: true,
-      defaults: { rotation: 0.01 },
     })
   );
   const toggleTimeline = () => {

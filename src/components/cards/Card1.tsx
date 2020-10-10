@@ -53,10 +53,11 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     let sizeContainer;
     if (expandedContentRef.current) {
       let rect = expandedContentRef.current.clientHeight;
+      console.log(rect);
       let margin = 20;
       let sizeHeader = 53;
       sizeContainer = rect + sizeHeader + margin;
-    }
+    } else sizeContainer = 270 + 73;
 
     tl.to(`#${title}-expandedContent`, {
       y: 65,
@@ -64,7 +65,6 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     });
     tl.to(`#${title}-spanForAnimationLeft`, {
       rotation: 0.01, // to make it smooth
-      // clipPath: 'circle(200% at -10% -10%)',
       x: 95,
       duration: 0.8,
       ease: 'power2.in',
@@ -130,7 +130,7 @@ function Card1({ title, content, expandedContent }: Card1Props) {
       [`#${title}`],
       {
         x: 255,
-        y: -40,
+        y: -50,
         duration: 0,
         ease: 'power2.in',
       },

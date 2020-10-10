@@ -14,18 +14,18 @@ var nid = require('nid');
 function App() {
   const isDesktop = useMediaQuery({ minWidth: 1025, minHeight: 601 });
 
-  const [skills, setskills] = useState({ skill1: 'css', skill2: 'html' });
+  const [skills, setskills] = useState({ skill1: 'javascript', skill2: 'css' });
   const [show, setShow] = useState(true);
   const [skillsSeen, setskillsSeen] = useState([skills.skill1, skills.skill2]);
 
   let possibleSkills = [
-    'css',
-    'html',
     'javascript',
     'cpp',
     'git',
+    'html',
     'figma',
     'jss',
+    'css',
     'typescript',
     'react',
     'gsap',

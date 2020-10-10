@@ -5,22 +5,19 @@ const cardContent: ICardContent = {
     title: `CSS`,
     content: 'CSS enables us to style our web pages with a cascade synthax.',
     expandedContent: `My knowledge of CSS is advanced. I have used FlexBox, CSS Grid, media queries, pseudo-selector elements, transform, transitions, z-index and much more.
-     My past projects have brought me to use a couple of tools to make my styling life simpler. For instance, I have used Sass and its great functionalities. I have also looked into some tools that answer some of the conundrums that CSS brings (e.g. global naming, dependencies) such as CSS-in-JS libraries (I have used JSS and styled components). In the future, I would love to use CSS frameworks such as Bulma, Materialize, Material-UI, etc...
-     `,
+     My past projects have brought me to use a couple of tools to make my styling life simpler. For instance, I have used Sass and its great functionalities. I have also looked into some tools that answer some of the conundrums that CSS brings (e.g. global naming, dependencies) such as CSS-in-JS libraries (I have used JSS and styled components). In the future, I would love to use CSS frameworks such as Bulma, Materialize, Material-UI, etc...     `,
   },
   html: {
-    title: 'HTML',
+    title: `HTML`,
     content: `HTML is the most famous language of the web. There is more to it than divs and spans!`,
     expandedContent: `HTML presents itself with a set of tags, attributes, actions and more to create content on the web page. Even though some javascript libraries take over some of those roles, the HTML markup remains something important for the browser (buttons should not be a div but a button tag, even though they can be in a div container).
     I would really want to get better at implementing solutions that respect WCAG standards to make the web accessible to all.
-    I know that there is PUG out there, and probably other HTML tools, but I have never used them.
-    `,
+     There are also some HTML templating tools like PUG or Haml but I have not had a use case for them so far. `,
   },
   git: {
     title: 'Git',
     content: `Git is probably the most famous version control tool.`,
-    expandedContent: `Git is a powerful version control too. I use it in all my projects. Not only can I checkout to a new branches to work on a fixes or try new things without affecting the master, but I can also save my files to the remote repository on the clouds and by coupling that with CI/CD tools I can easily deploy my projects online for the users to experience. I want to get more expertise with this tool and related deployment tools (Docker for instance).
-    `,
+    expandedContent: `Git is a powerful version control too. I use it in all my projects. Not only can I checkout to a new branches to work on a fixes or try new things without affecting the master, but I can also save my files to the remote repository on the clouds and by coupling that with CI/CD tools I can easily deploy my projects online for the users to experience. I want to get more expertise with this tool and related deployment tools (Docker for instance).    `,
   },
   figma: {
     title: 'Figma',

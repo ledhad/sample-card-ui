@@ -29,7 +29,7 @@ const Fade = ({ show, children }: FadeProps) => {
         {
           x: 0,
           opacity: 1,
-          duration: 0.5,
+          duration: 0.3,
           ease: 'power2.out',
         }
       );
@@ -43,7 +43,7 @@ const Fade = ({ show, children }: FadeProps) => {
         {
           x: -400,
           opacity: 0,
-          duration: 0.5,
+          duration: 0.3,
           ease: 'power2.out',
         }
       );

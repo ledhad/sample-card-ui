@@ -59,14 +59,14 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     }
 
     tl.to(`#${title}-expandedContent`, {
-      opacity: 0,
       y: 65,
       duration: 0,
     });
     tl.to(`#${title}-spanForAnimationLeft`, {
       rotation: 0.01, // to make it smooth
-      clipPath: 'circle(200% at -10% -10%)',
-      duration: 0.7,
+      // clipPath: 'circle(200% at -10% -10%)',
+      x: 95,
+      duration: 0.8,
       ease: 'power2.in',
     });
     tl.to(`#${title}-left`, {
@@ -91,8 +91,8 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     });
     tl.to(`#${title}-spanForAnimationLeft`, {
       rotation: 0.01, // to make it smooth
-      left: -95,
-      duration: 0.5,
+      x: -95,
+      duration: 0.8,
       ease: 'power2.in',
     });
     tl.to(
@@ -105,43 +105,40 @@ function Card1({ title, content, expandedContent }: Card1Props) {
       },
       '<'
     );
+
     tl.to(
-      `#${title}-left`,
-      {
-        rotation: 0.01, // to make it smooth
-        width: 0,
-        minWidth: 0,
-        duration: 0.6,
-        ease: 'power2.in',
-      },
-      '<'
-    );
-    tl.to(
-      `#${title}-left`,
-      {
-        rotation: 0.01, // to make it smooth
-        height: '0%',
-        duration: 0.1,
-        ease: CustomEase.create(
-          'custom',
-          'M0,0 C0.066,0.318 0.367,0.654 0.496,0.775 0.54,0.816 0.78,1 1,1'
-        ),
-      },
-      '<'
-    );
-    tl.to(
-      [`#${title}-content`, `#${title}-btnStyle`, `#${title}`],
+      [`#${title}-rightAbsolute`],
       {
         rotation: 0.01, // to make it smooth
         x: -300,
-        opacity: 0,
         duration: 0.5,
         ease: 'power2.in',
       },
       '<+0.4'
     );
+    tl.to(
+      [`#${title}-right`],
+      {
+        rotation: 0.01, // to make it smooth
+        x: -300,
+        duration: 0.5,
+        ease: 'power2.in',
+      },
+      '<+0.4'
+    );
+    tl.to(
+      [`#${title}`],
+      {
+        x: 255,
+        y: -40,
+        duration: 0,
+        ease: 'power2.in',
+      },
+      '>'
+    );
+    // problem
     tl.to(`#${title}-wrapper`, {
-      duration: 0.8,
+      duration: 0.5,
       height: sizeContainer,
       flexDirection: 'column',
       rotation: 0.01, // to make it smooth
@@ -150,50 +147,21 @@ function Card1({ title, content, expandedContent }: Card1Props) {
         'M0,0 C0.066,0.318 0.367,0.654 0.496,0.775 0.54,0.816 0.78,1 1,1'
       ),
     });
+
     tl.to(
       `#${title}-spanForAnimationTop`,
       {
         rotation: 0.01, // to make it smooth
-        top: 0,
+        y: 53,
         duration: 1,
         ease: 'power2.out',
       },
       '<+0.1'
     );
-    tl.to(
-      `#${title}`,
-      {
-        rotation: 0.01, // to make it smooth
-        // paddingTop: rightTextMarginTop,
-        zIndex: 5,
-        duration: 1,
-        ease: 'power2.out',
-      },
-      '<-1'
-    );
-    tl.to(
-      `#${title}-content`,
-      {
-        rotation: 0.01, // to make it smooth
-        paddingTop: 10,
-        duration: 1,
-        ease: 'power4.out',
-      },
-      '>'
-    );
-    tl.to(
-      [`#${title}`],
-      {
-        opacity: 0,
-        y: -40,
-        ease: 'power2.in',
-      },
-      '<'
-    );
+
     tl.to(
       [`#${title}-expandedContent`],
       {
-        opacity: 1,
         x: 300,
         duration: 0.5,
         ease: 'power2.in',
@@ -203,16 +171,6 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     tl.to(
       [`#${title}`],
       {
-        x: 0,
-        duration: 0,
-        ease: 'power2.in',
-      },
-      '<'
-    );
-    tl.to(
-      [`#${title}`],
-      {
-        opacity: 1,
         y: 0,
         duration: 0.5,
         ease: 'power1.out',
@@ -312,8 +270,7 @@ function Card1({ title, content, expandedContent }: Card1Props) {
             <ButtonModal title={title} />
           </span>
         </span>
-
-        <section className={classes.right} id={`${title}-right`}>
+        <div className={classes.rightAbsolute} id={`${title}-rightAbsolute`}>
           <h5 className={classes.title} id={`${title}`}>
             {titleContent}
           </h5>
@@ -323,7 +280,9 @@ function Card1({ title, content, expandedContent }: Card1Props) {
           <span id={`${title}-btnStyle`}>
             <ButtonStyle1 onClickButton={onClickButton} />
           </span>
-        </section>
+        </div>
+
+        <section className={classes.right} id={`${title}-right`}></section>
         <section className={classes.left} id={`${title}-left`}>
           <span className={classes.topSVG} id={`${title}-topSVG`}>
             {topSVG}
@@ -341,6 +300,16 @@ function Card1({ title, content, expandedContent }: Card1Props) {
 }
 
 const useStyles = createUseStyles({
+  rightAbsolute: {
+    position: 'absolute',
+    right: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    zIndex: 8,
+    overflow: 'visible',
+  },
   spanExpandedContent: `
   position: absolute;
   font-family: 'Phetsarath-Regular',sans-serif;
@@ -353,21 +322,22 @@ const useStyles = createUseStyles({
   margin-right: 13px;
   margin-left: 16px;
   margin-top: 0px;
-  opacity:0;
+  opacity:1;
   max-width:240px;
   width: 240px;
   left : -300px;
+  z-index: 6;
   `,
   spanForAnimationLeft: {
     height: 160,
-    width: 95,
-    minWidth: 95,
+    width: 96,
+    minWidth: 96,
     backgroundColor: ({ theme }) => theme.color.crazyGreen,
     position: 'absolute',
     top: 0,
-    left: 0,
+    left: -96,
     zIndex: 3,
-    clipPath: 'circle(10% at -10% -10%)',
+    // clipPath: 'circle(10% at -10% -10%)',
   },
   spanForAnimationTop: {
     height: 53,
@@ -377,7 +347,7 @@ const useStyles = createUseStyles({
     position: 'absolute',
     top: -53,
     left: 0,
-    zIndex: 3,
+    zIndex: 7,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -401,6 +371,7 @@ const useStyles = createUseStyles({
     borderRadius: 7,
     position: 'relative',
     backgroundColor: ({ theme }) => theme.color.white,
+    zIndex: 4,
   },
   title: `
   font-family: Roboto;
@@ -411,7 +382,8 @@ const useStyles = createUseStyles({
   margin-bottom: 18px;
   margin-top: 18px;
   opacity:1;
-  minHeight:24px;
+  min-height:24px;
+  z-index:8;
  `,
   content: `
   font-family: 'Phetsarath-Regular',sans-serif;
@@ -419,20 +391,22 @@ const useStyles = createUseStyles({
   font-weight: normal;
   font-size: 12px;
   color : #7B7676;
-   line-height:18px;
+  line-height:18px;
   text-align: center;
   margin-right: 13px;
   margin-left:5px;
   maxWidth: 169px;
+  z-index:5;
   `,
   right: {
     order: 2,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignContent: 'space-between',
+    justifyContent: 'space-between',
+    alignContent: 'center',
     alignItems: 'center',
     height: '100%',
+    width: '100%',
   },
   left: {
     width: 92,
@@ -440,7 +414,7 @@ const useStyles = createUseStyles({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-
+    zIndex: 2,
     borderRight: '1px solid #E44D26',
   },
   logo: {

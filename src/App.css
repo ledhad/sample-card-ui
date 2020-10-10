@@ -6,7 +6,8 @@
   width: 100vw;
   height: 100%;
   min-height: 100vh;
-  position: 'relative';
+  position: relative;
+  z-index: 3;
   background-color: #ebebeb;
 }
 @media (min-width: 700px) {
@@ -16,6 +17,7 @@
 }
 
 .app-wrapper {
+  z-index: 3;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -74,4 +76,24 @@
   z-index: 10;
   right: 20px;
   top: 10px;
+}
+
+#card-container {
+  /* background-color: blue; */
+  display: block;
+  height: 100%;
+  min-height: 383px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+#card-container > * {
+  position: absolute;
+  left: 3%;
+}
+
+#wrapper-absolute {
+  background-color: orangered;
+  position: absolute;
+  z-index: 5;
 }

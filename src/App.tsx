@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './App.css';
 import { Card } from './components/cards';
 import ButtonStyle2 from './components/buttons/ButtonStyle2';
@@ -17,6 +17,7 @@ function App() {
   const [skills, setskills] = useState({ skill1: 'javascript', skill2: 'css' });
   const [show, setShow] = useState(true);
   const [skillsSeen, setskillsSeen] = useState([skills.skill1, skills.skill2]);
+  const [count, setCount] = useState(2);
 
   let possibleSkills = [
     'javascript',
@@ -34,43 +35,33 @@ function App() {
   ];
 
   //useCallback unnecessary
-  let findRandomSkill = useCallback(
-    (skillToUpdate: Array<string>, actualSkills: Array<string>) => {
-      let temp = '';
-      let newSkills: Array<string> = skillToUpdate.map((element, index) => {
-        while (
-          element === actualSkills[0] ||
-          element === actualSkills[1] ||
-          element === skillToUpdate[(index + 1) % 2] ||
-          element === temp
-        ) {
-          let n = Math.floor(Math.random() * possibleSkills.length);
-          element = possibleSkills[n];
-        }
-        temp = element;
-        let filterResult = skillsSeen.filter((skill) => skill === element);
-        if (filterResult.length === 0)
-          setskillsSeen((prev) => [...prev, element]);
-        return element;
-      });
-      return newSkills;
-    },
-    [possibleSkills, skillsSeen]
-  );
+  let findRandomSkill = useCallback(() => {
+    setCount(count + 2);
+    console.log('i com ehere count = ', count);
+
+    let newSkills = [possibleSkills[count], possibleSkills[count + 1]];
+    setskillsSeen((prev) => [...prev, newSkills[0], newSkills[1]]);
+
+    return newSkills;
+  }, [possibleSkills]);
   function handleClick() {
     setShow(!show);
     debounced();
   }
+  useEffect(() => {
+    if (count === 12) {
+      setCount(2);
+      setskillsSeen([skills.skill1, skills.skill2]);
+      handleClick();
+    }
+  }, [count]);
 
   let debounced = useCallback(
     debounce(
       () => {
-        let newSkill1 = skills.skill1;
-        let newSkill2 = skills.skill2;
-        [newSkill1, newSkill2] = findRandomSkill(
-          [newSkill1, newSkill2],
-          [skills.skill1, skills.skill2]
-        );
+        let newSkill1: string;
+        let newSkill2: string;
+        [newSkill1, newSkill2] = findRandomSkill();
         setTimeout(() => {
           setskills({ skill1: newSkill1, skill2: newSkill2 });
 
@@ -127,7 +118,7 @@ function App() {
     <div className="App">
       <div className="app-wrapper">
         <span id="skills-seen">
-          {skillsSeen.length} / {possibleSkills.length}
+          {count} / {possibleSkills.length}
         </span>
         <span id="social-links">
           <a

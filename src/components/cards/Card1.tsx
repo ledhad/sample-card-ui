@@ -53,7 +53,6 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     let sizeContainer;
     if (expandedContentRef.current) {
       let rect = expandedContentRef.current.clientHeight;
-      console.log(rect);
       let margin = 20;
       let sizeHeader = 53;
       sizeContainer = rect + sizeHeader + margin;
@@ -92,7 +91,7 @@ function Card1({ title, content, expandedContent }: Card1Props) {
     tl.to(`#${title}-spanForAnimationLeft`, {
       rotation: 0.01, // to make it smooth
       x: -95,
-      duration: 0.8,
+      duration: 0.6,
       ease: 'power2.in',
     });
     tl.to(
@@ -136,10 +135,10 @@ function Card1({ title, content, expandedContent }: Card1Props) {
       },
       '>'
     );
-    // problem
+
     tl.to(`#${title}-wrapper`, {
       duration: 0.5,
-      height: sizeContainer,
+      height: sizeContainer, // problem
       flexDirection: 'column',
       rotation: 0.01, // to make it smooth
       ease: CustomEase.create(
@@ -302,6 +301,7 @@ function Card1({ title, content, expandedContent }: Card1Props) {
 const useStyles = createUseStyles({
   rightAbsolute: {
     position: 'absolute',
+    top: 0,
     right: 0,
     display: 'flex',
     flexDirection: 'column',

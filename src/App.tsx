@@ -11,70 +11,58 @@ import debounce from 'lodash/debounce';
 import { useMediaQuery } from 'react-responsive';
 var nid = require('nid');
 
+let possibleSkills = [
+  'javascript',
+  'cpp',
+  'git',
+  'html',
+  'figma',
+  'jss',
+  'css',
+  'typescript',
+  'react',
+  'gsap',
+  'nodejs',
+  'jquery',
+];
+
 function App() {
   const isDesktop = useMediaQuery({ minWidth: 1025, minHeight: 601 });
 
   const [skills, setskills] = useState({ skill1: 'javascript', skill2: 'css' });
   const [show, setShow] = useState(true);
-  const [skillsSeen, setskillsSeen] = useState([skills.skill1, skills.skill2]);
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(0);
 
-  let possibleSkills = [
-    'javascript',
-    'cpp',
-    'git',
-    'html',
-    'figma',
-    'jss',
-    'css',
-    'typescript',
-    'react',
-    'gsap',
-    'nodejs',
-    'jquery',
-  ];
-
-  //useCallback unnecessary
-  let findRandomSkill = useCallback(() => {
-    setCount(count + 2);
-    console.log('i com ehere count = ', count);
-
-    let newSkills = [possibleSkills[count], possibleSkills[count + 1]];
-    setskillsSeen((prev) => [...prev, newSkills[0], newSkills[1]]);
-
-    return newSkills;
-  }, [possibleSkills]);
   function handleClick() {
     setShow(!show);
     debounced();
   }
   useEffect(() => {
-    if (count === 12) {
-      setCount(2);
-      setskillsSeen([skills.skill1, skills.skill2]);
-      handleClick();
+    setTimeout(() => {
+      setskills({
+        skill1: possibleSkills[count],
+        skill2: possibleSkills[count + 1],
+      });
+      setShow(true);
+    }, 499);
+  }, [count]);
+
+  useEffect(() => {
+    if (count >= 12) {
+      setCount(0);
     }
   }, [count]);
 
-  let debounced = useCallback(
-    debounce(
-      () => {
-        let newSkill1: string;
-        let newSkill2: string;
-        [newSkill1, newSkill2] = findRandomSkill();
-        setTimeout(() => {
-          setskills({ skill1: newSkill1, skill2: newSkill2 });
+  const updateState = () => {
+    setCount((prev) => prev + 2);
+  };
 
-          setShow(true);
-        }, 400);
-      },
-      1000,
-      {
-        leading: true,
-        trailing: false,
-      }
-    ),
-    [skills]
+  let debounced = useCallback(
+    debounce(updateState, 0, {
+      leading: true,
+      trailing: false,
+    }),
+    []
   );
 
   let aroundLinkedin = (
@@ -118,7 +106,7 @@ function App() {
     <div className="App">
       <div className="app-wrapper">
         <span id="skills-seen">
-          {count} / {possibleSkills.length}
+          {count + 2} / {possibleSkills.length}
         </span>
         <span id="social-links">
           <a

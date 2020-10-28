@@ -34,7 +34,6 @@ function App() {
   const [count, setCount] = useState(0);
 
   function handleClick() {
-    setShow(!show);
     debounced();
   }
   useEffect(() => {
@@ -54,11 +53,12 @@ function App() {
   }, [count]);
 
   const updateState = () => {
+    setShow(!show);
     setCount((prev) => prev + 2);
   };
 
   let debounced = useCallback(
-    debounce(updateState, 0, {
+    debounce(updateState, 500, {
       leading: true,
       trailing: false,
     }),

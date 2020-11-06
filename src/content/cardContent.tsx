@@ -40,7 +40,7 @@ const cardContent: ICardContent = {
   },
   javascript: {
     title: 'Javascript',
-    content: `Javascript is a core technology of the web. It goes without saying that it is widely used.`,
+    content: `Javascript is a core technology of the web.`,
     expandedContent: `Javascript was developped to enable cross-compatibility between browsers. It respects ECMAScript, a standard that sees some releases once a while, but most notably ES6 with its new synthax to : import modules, create arrow-functions, promises, utilities for arrays... I personally fell in love with Javascript and was one of the main reasons why I started learning web-development. My goal is to become very proficient with this language.
     `,
   },
